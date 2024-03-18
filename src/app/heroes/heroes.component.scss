@@ -6,11 +6,19 @@
     .card-header{
         height: 205px;
         padding: 0;
+        
+        .heroesImg{
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
     }
     .card{
         width: 33%;
         height: 100%;
         margin: 10px;
+    }
+    .card.selected{
+        box-shadow: 0 0 0 5px blue;
     }
 }
 .heroesImg{

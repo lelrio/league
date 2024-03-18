@@ -1,6 +1,6 @@
 
 <div class="container" >
-    <div *ngFor="let hero of heroes" class="card">
+    <div *ngFor="let hero of heroes" [class.selected]="selectedHero === hero" (click)="selectHero(hero)" class="card">
         <div class="card-header">
           <img class="heroesImg" [src]="hero.imageUrl" alt="{{ hero.name }}">
         </div>
@@ -16,7 +16,7 @@
               </ul>
             </li>
             <!-- Si la liste item vide faire opacity 0 -->
-            <li>Items: 
+            <li *ngIf="hero.items.length > 0">Items: 
               <ul>
                 <li *ngFor="let item of hero.items">{{ item.name }}</li>
               </ul>
@@ -27,5 +27,5 @@
 </div>
 
 <div class="container-start">
-    <button class="btn btn-primary">Start Fight</button>
+    <button class="btn btn-primary" [disabled]="!selectedHero" (click)="goToFight()">Start Fight</button>
 </div>

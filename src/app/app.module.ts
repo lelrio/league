@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FightComponent } from './fight/fight.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent,
+    FightComponent
   ],
   imports: [
     BrowserModule,
