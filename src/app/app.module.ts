@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FightComponent } from './fight/fight.component';
+import { WrongRouteComponent } from './wrong-route/wrong-route.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    FightComponent
+    FightComponent,
+    WrongRouteComponent
   ],
   imports: [
     BrowserModule,

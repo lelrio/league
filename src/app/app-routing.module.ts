@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 import { AppComponent } from './app.component';
 import { FightComponent } from './fight/fight.component';
+import { WrongRouteComponent } from './wrong-route/wrong-route.component';
 
 const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   { path: '', component: HeroesComponent },
   { path: 'fight/:id', component: FightComponent },
-  { path: '', redirectTo: '/heroes', pathMatch: 'full'}
+  { path: 'not-found', component: WrongRouteComponent, pathMatch: 'full'},
+  { path: '**', redirectTo: '/not-found'},
 ];
 
 @NgModule({
