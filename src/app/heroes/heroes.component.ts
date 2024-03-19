@@ -11,7 +11,7 @@ import { HeroService } from '../services/hero.service';
 
 export class HeroesComponent implements OnInit{
   heroes: Hero[] = [];
-  selectedHero: Hero;
+  selectedHero: Hero | null = null;
 
   constructor(private router: Router, private heroService: HeroService){}
 
@@ -25,7 +25,7 @@ export class HeroesComponent implements OnInit{
 
     if(selectedHero){
       if(this.selectedHero === selectedHero){
-        this.selectedHero;
+        this.selectedHero = null;
       }else{
         this.selectedHero = selectedHero;
       }
