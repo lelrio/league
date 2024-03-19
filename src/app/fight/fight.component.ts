@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Hero } from '../model/hero.model';
+import { HeroService } from '../services/hero.service';
+import { Router } from 'express';
 
 @Component({
   selector: 'app-fight',
@@ -8,5 +10,7 @@ import { Hero } from '../model/hero.model';
 })
 export class FightComponent {
   selectedHero: Hero | null = null;
+
+  constructor(private router: Router, private heroService: HeroService) {}
 
 }

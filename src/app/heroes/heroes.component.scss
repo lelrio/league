@@ -1,7 +1,20 @@
+::ng-deep app-heroes{ 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .container{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    margin: 0;
+
+    .row{
+        width: 100%;
+    }
 
     .card-header{
         height: 205px;
@@ -13,9 +26,11 @@
         }
     }
     .card{
-        width: 33%;
         height: 100%;
+        min-height: 550px;
+        min-width: 400px;
         margin: 10px;
+        padding: 0;
     }
     .card.selected{
         box-shadow: 0 0 0 5px blue;

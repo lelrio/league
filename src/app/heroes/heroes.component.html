@@ -1,31 +1,32 @@
-
-<div class="container" >
-    <div *ngFor="let hero of heroes" [class.selected]="selectedHero === hero" (click)="selectHero(hero)" class="card">
-        <div class="card-header">
-          <img class="heroesImg" [src]="hero.imageUrl" alt="{{ hero.name }}">
-        </div>
-        <div class="card-body">
-          <h2>{{ hero.name }}</h2> 
-          <ul>
-            <li>HP: {{ hero.hp }}</li>
-            <li>ATK: {{ hero.atk }}</li>
-            <li>Spells: 
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div *ngFor="let hero of heroes" [class.selected]="selectedHero.id === hero.id" (click)="selectHero(selectedHero.id)" class="d-flex card col-12 col-md-4 col-lg-3">
+            <div class="card-header">
+              <img class="heroesImg" [src]="hero.imageUrl" alt="{{ hero.name }}">
+            </div>
+            <div class="card-body">
+              <h2>{{ hero.name }}</h2> 
               <ul>
-                <li *ngFor="let spell of hero.spells">{{ spell.name }}</li> 
-                <!-- // rajouter les dégats des spells // plutot créer un composant spell pour n'avoir à changer que le composant spell plutot que le héro -->
+                <li>HP: {{ hero.hp }}</li>
+                <li>ATK: {{ hero.atk }}</li>
+                <li>Spells: 
+                  <ul>
+                    <li *ngFor="let spell of hero.spells">{{ spell.name }} : {{ spell.damage }} dégats</li> 
+                    <!-- // rajouter les dégats des spells // plutot créer un composant spell pour n'avoir à changer que le composant spell plutot que le héro -->
+                  </ul>
+                </li>
+                <li *ngIf="hero.items.length > 0">Items: 
+                  <ul>
+                    <li *ngFor="let item of hero.items">{{ item.name }} :  {{ item.stat }}</li>
+                  </ul>
+                </li>
               </ul>
-            </li>
-            <!-- Si la liste item vide faire opacity 0 -->
-            <li *ngIf="hero.items.length > 0">Items: 
-              <ul>
-                <li *ngFor="let item of hero.items">{{ item.name }}</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-</div>
-
-<div class="container-start">
+            </div>
+          </div>
+    </div>
+    
+  </div>
+  
+  <div class="container-start">
     <button class="btn btn-primary" [disabled]="!selectedHero" (click)="goToFight()">Start Fight</button>
-</div>
+  </div>

@@ -7,6 +7,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FightComponent } from './fight/fight.component';
 import { WrongRouteComponent } from './wrong-route/wrong-route.component';
+import { HeroService } from './services/hero.service';
 
 @NgModule({
   declarations: [
