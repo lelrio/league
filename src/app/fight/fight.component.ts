@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Hero } from '../model/hero.model';
 
 @Component({
   selector: 'app-fight',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './fight.component.scss'
 })
 export class FightComponent {
+  selectedHero: Hero | null = null;
 
 }
