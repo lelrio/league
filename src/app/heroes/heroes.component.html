@@ -1,11 +1,11 @@
 <div class="container">
     <div class="row d-flex justify-content-center">
-        <div *ngFor="let hero of heroes" [class.selected]="selectedHero && selectedHero.id === hero.id" (click)="selectHero(hero.id)" class="d-flex card col-12 col-md-4 col-lg-3">
+        <div *ngFor="let hero of heroes" [class.selected]="selectedHero && selectedHero.id === hero.id"  (click)="selectHero(hero.id)"  class="d-flex card col-12 col-md-4 col-lg-3">
             <div class="card-header">
               <img class="heroesImg" [src]="hero.imageUrl" alt="{{ hero.name }}">
             </div>
             <div class="card-body">
-              <h2>{{ hero.name }}</h2> 
+              <h2>{{ hero.name }} {{hero.id}}</h2> 
               <ul>
                 <li>HP: {{ hero.hp }}</li>
                 <li>ATK: {{ hero.atk }}</li>
@@ -22,7 +22,7 @@
                 </li>
               </ul>
             </div>
-          </div>
+        </div>
     </div>
     
   </div>
