@@ -1,4 +1,29 @@
-
 <h1>Fight page</h1>
 
-{{ selectedHero }}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <img class="heroesImg" [src]="selectedHero.imageUrl" alt="{{ selectedHero.name }}">
+        </div>
+        <div class="card-body">
+            <h2>{{ selectedHero.name }}</h2>
+            <ul>
+                <li>HP: {{ selectedHero.hp }}</li>
+                <li>ATK: {{ selectedHero.atk }}</li>
+                <li>Spells:
+                    <ul>
+                        <li *ngFor="let spell of selectedHero.spells">{{ spell.name }}</li>
+                        <!-- // rajouter les dégats des spells // plutot créer un composant spell pour n'avoir à changer que le composant spell plutot que le héro -->
+                    </ul>
+                </li>
+                <!-- Si la liste item vide faire opacity 0 -->
+                <li *ngIf="selectedHero.items.length > 0">Items:
+                    <ul>
+                        <li *ngFor="let item of selectedHero.items">{{ item.name }}</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

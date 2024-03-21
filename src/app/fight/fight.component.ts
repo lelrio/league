@@ -9,20 +9,23 @@ import { HeroService } from '../services/hero.service';
   styleUrl: './fight.component.scss'
 })
 
-export class FightComponent implements OnInit{
+export class FightComponent implements OnInit {
   selectedHero: Hero;
 
-  constructor(private route: ActivatedRoute, private heroService: HeroService){
+  constructor(private route: ActivatedRoute, private heroService: HeroService) {
   }
 
-  ngOnInit(){
-    const id = this.route.snapshot.params['id'];
+  ngOnInit() {
+    this.loadSelectedHero();
 
-
-    console.log(this.heroService.getHeroById(id));
-    
-
-    console.log(id)
-    console.log(this.route)
+  }
+  loadSelectedHero() {
+    const id = Number(this.route.snapshot.params['id']);
+    const hero = this.heroService.getHeroById(id);
+    if (hero !== undefined) {
+      this.selectedHero = hero;
+    } else {
+      console.error('Hero not found');
+    }
   }
 }

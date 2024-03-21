@@ -1,7 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Hero } from '../model/hero.model';
-import { Spell } from '../model/spell.model';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +46,7 @@ export class HeroService {
       ],
       imageUrl: "/assets/images/heroes/ahri.jfif",
       items: [
-        {name:'Coiffe de Rabadon', stat: 120}
+        { name: 'Coiffe de Rabadon', stat: 120 }
       ]
     }
   ];
