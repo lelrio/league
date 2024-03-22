@@ -1,7 +1,7 @@
-import { Item } from "./item.model";
-import { Spell } from "./spell.model";
+import { Item } from './item.model';
+import { Spell } from './spell.model';
 
-export class Hero {
+export class Enemy {
   id: number;
   name: string;
   hp: number;

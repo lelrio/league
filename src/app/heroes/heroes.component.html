@@ -1,31 +1,33 @@
-
-<div class="container" >
-    <div *ngFor="let hero of heroes" [class.selected]="selectedHero === hero" (click)="selectHero(hero)" class="card">
-        <div class="card-header">
-          <img class="heroesImg" [src]="hero.imageUrl" alt="{{ hero.name }}">
-        </div>
-        <div class="card-body">
-          <h2>{{ hero.name }}</h2> 
+<div class="container">
+  <h1>List of heroes :</h1>
+</div>
+<div class="container">
+  <div *ngFor="let hero of heroes" [class.selected]="selectedHero === hero" (click)="selectHero(hero)" class="card">
+    <div class="card-header">
+      <img class="heroesImg" [src]="hero.imageUrl" alt="{{ hero.name }}">
+    </div>
+    <div class="card-body">
+      <h2>{{ hero.name }}</h2>
+      <ul>
+        <li>HP: {{ hero.hp }}</li>
+        <li>ATK: {{ hero.atk }}</li>
+        <li>Spells:
           <ul>
-            <li>HP: {{ hero.hp }}</li>
-            <li>ATK: {{ hero.atk }}</li>
-            <li>Spells: 
-              <ul>
-                <li *ngFor="let spell of hero.spells">{{ spell.name }}</li> 
-                <!-- // rajouter les dégats des spells // plutot créer un composant spell pour n'avoir à changer que le composant spell plutot que le héro -->
-              </ul>
-            </li>
-            <!-- Si la liste item vide faire opacity 0 -->
-            <li *ngIf="hero.items.length > 0">Items: 
-              <ul>
-                <li *ngFor="let item of hero.items">{{ item.name }}</li>
-              </ul>
-            </li>
+            <li *ngFor="let spell of hero.spells">{{ spell.name }}</li>
+            <!-- // rajouter les dégats des spells // plutot créer un composant spell pour n'avoir à changer que le composant spell plutot que le héro -->
           </ul>
-        </div>
-      </div>
+        </li>
+        <!-- Si la liste item vide faire opacity 0 -->
+        <li *ngIf="hero.items.length > 0">Items:
+          <ul>
+            <li *ngFor="let item of hero.items">{{ item.name }}</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="container-start">
-    <button class="btn btn-primary" [disabled]="!selectedHero" (click)="goToFight()">Start Fight</button>
+  <button class="btn btn-primary" [disabled]="!selectedHero" (click)="goToFight()">Start Fight</button>
 </div>

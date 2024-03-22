@@ -1,4 +1,65 @@
+<div class="container">
+    <h1>Fight page</h1>
+</div>
 
-<h1>Fight page</h1>
+<h2 style="text-align: center;">Round 1</h2>
 
-<p>{{ selectedHero.name }}</p>
+<div class="container">
+    <div class="charactersBlock">
+        <div class="health-bar">
+            <div class="health-level" [style.width.%]="(selectedHero.hp / selectedHero.maxHp) * 100"></div>
+        </div>
+        <div class="card hero selectedHero">
+            <div class="card-header">
+                <img class="heroesImg" [src]="selectedHero.imageUrl" alt="{{ selectedHero.name }}">
+            </div>
+            <div class="card-body">
+                <h2>{{ selectedHero.name }}</h2>
+                <ul class="card-body">
+                    <li>HP: {{ selectedHero.hp }}</li>
+                    <li>ATK: {{ selectedHero.atk }}</li>
+                    <li>Spells:
+                        <ul>
+                            <li *ngFor="let spell of selectedHero.spells">{{ spell.name }}</li>
+                        </ul>
+                    </li>
+                    <li *ngIf="selectedHero.items.length > 0">Items:
+                        <ul>
+                            <li *ngFor="let item of selectedHero.items">{{ item.name }}</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="vs">
+        <img src="/assets/images/heroes/vs.jfif" alt="" class="versus">
+    </div>
+    <div class="charactersBlock">
+        <div class="health-bar">
+            <div class="health-level" [style.width.%]=" (randomEnemy!.hp < 0) ? 0 : randomEnemy!.hp "></div>
+        </div>
+        <div class="card hero randomEnemy">
+            <div class="card-header">
+                <img class="heroesImg" [src]="randomEnemy!.imageUrl" alt="{{ randomEnemy!.name }}">
+            </div>
+            <div class="card-body">
+                <h2>Random Enemy</h2>
+                <p>Name: {{ randomEnemy!.name }}</p>
+                <li> Hp : {{ randomEnemy!.hp }}</li>
+                <li> Atk : {{ randomEnemy!.atk }}</li>
+                <li>Spells:
+                    <ul>
+                        <li *ngFor="let spell of randomEnemy!.spells">{{ spell.name }}</li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="spellbar">
+    <button class="btn btn-primary" (click)="castSpell(spell.id)" *ngFor="let spell of selectedHero.spells">{{
+        spell.name }} {{ spell.damage }}
+        🔥</button>
+    <button class="btn btn-primary">Attak {{ selectedHero.atk }} 🔥</button>
+</div>

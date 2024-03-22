@@ -13,7 +13,7 @@ import { WrongRouteComponent } from './wrong-route/wrong-route.component';
     AppComponent,
     HeroesComponent,
     FightComponent,
-    WrongRouteComponent
+    WrongRouteComponent,
   ],
   imports: [
     BrowserModule,

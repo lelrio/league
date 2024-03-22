@@ -1,0 +1,62 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .health-bar {
+        width: 400px;
+        height: 20px;
+        background-color: #ddd;
+        border-radius: 5px;
+    }
+    
+    .health-level {
+        height: 100%;
+        background-color: green; 
+        border-radius: 5px;
+    }
+    .charactersBlock{
+        width: 50%;
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+    .vs{
+        .versus{
+            height: 100px;
+            width: 100px;
+        }
+    }
+    .hero{
+        width: 400px;
+        height: 500px;
+        object-fit: cover;
+        .card-header{
+            padding: 0;
+            .heroesImg{
+                height: 100%;
+                max-height: 200px;
+                width: 100%;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+        }
+        .card-body{
+            overflow-y: scroll;
+            height: 300px;
+            ul{
+                overflow: hidden;
+            }
+            li{
+                overflow: hidden;
+            }
+        }
+    }
+}
+.spellbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
