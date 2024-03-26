@@ -18,7 +18,7 @@ export class HeroService {
         { id: 2, name: 'Estropiaison', damage: 70 },
         { id: 3, name: 'Crampon', damage: 10 },
         { id: 4, name: 'Guillotine Noxienne', damage: 150 }],
-      imageUrl: "/assets/images/heroes/darius.jfif",
+      imageUrl: '/assets/images/heroes/darius.jfif',
       items: []
     },
     {
@@ -54,13 +54,11 @@ export class HeroService {
     }
   ];
 
-  constructor() { }
-
-  getHeroes(): Hero[] {
+  public getHeroes(): Hero[] {
     return this.heroes;
   }
 
-  getHeroById(id: number): Hero | undefined {
+  public getHeroById(id: number): Hero | undefined {
     return this.heroes.find(hero => hero.id === id);
   }
 }

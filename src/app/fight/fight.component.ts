@@ -48,7 +48,6 @@ export class FightComponent implements OnInit {
     }
   }
 
-
   startFight() {
     while (this.selectedHero.hp > 0 && this.randomEnemy!.hp > 0) {
 
