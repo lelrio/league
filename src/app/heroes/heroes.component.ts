@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../model/hero.model';
 import { Router } from '@angular/router';
 import { HeroService } from '../services/hero.service';
-
+import { HeroSelectionService } from '../services/hero-selection.service';
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
@@ -13,12 +13,17 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
   selectedHero!: Hero;
 
-  constructor(private router: Router, private heroService: HeroService) { }
+  constructor(private router: Router, private heroService: HeroService, private HeroSelectionService: HeroSelectionService) { }
   ngOnInit() {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes().subscribe(heroes => {
+      this.heroes = heroes;
+    });
   }
 
   selectHero(hero: Hero): void {
+    //donne l'info au service pour pouvoir utiliser la data ailleurs
+    this.HeroSelectionService.setSelectedHero(hero);
+
     this.selectedHero = hero;
   }
 

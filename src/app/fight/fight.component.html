@@ -2,63 +2,42 @@
     <h1>Fight page</h1>
 </div>
 
-<h2 style="text-align: center;">Round 1</h2>
+<h2 class="d-flex text-align-center justify-content-center">Round {{ roundNumber }}</h2>
 
+<div *ngIf="selectedHero?.hp === 0 || randomEnemy?.hp === 0" class="winner-info">
+    <h2>{{ selectedHero!.hp === 0 ? randomEnemy!.name : selectedHero!.name }} wins!</h2>
+    <button (click)="returnToListOfHeroes()">Return to List of Heroes</button>
+</div>
 <div class="container">
+    <!-- hero bloc -->
     <div class="charactersBlock">
-        <div class="health-bar">
-            <div class="health-level" [style.width.%]="(selectedHero.hp / selectedHero.maxHp) * 100"></div>
-        </div>
-        <div class="card hero selectedHero">
-            <div class="card-header">
-                <img class="heroesImg" [src]="selectedHero.imageUrl" alt="{{ selectedHero.name }}">
-            </div>
-            <div class="card-body">
-                <h2>{{ selectedHero.name }}</h2>
-                <ul class="card-body">
-                    <li>ATK: {{ selectedHero.atk }}</li>
-                    <li>Spells:
-                        <ul>
-                            <li *ngFor="let spell of selectedHero.spells">{{ spell.name }}</li>
-                        </ul>
-                    </li>
-                    <li *ngIf="selectedHero.items.length > 0">Items:
-                        <ul>
-                            <li *ngFor="let item of selectedHero.items">{{ item.name }}</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+        <app-character-card [name]="selectedHero!.name" [imageUrl]="selectedHero!.imageUrl" [hp]="selectedHero!.hp"
+            [maxHp]="selectedHero!.maxHp" [atk]="selectedHero!.atk" [spells]="selectedHero!.spells"
+            [items]="selectedHero!.items">
+        </app-character-card>
+        <p *ngIf="winner === 'Hero'"> {{ selectedHero!.name }} is the winner</p>
+        <div class="spellbar">
+            <button class="btn btn-primary" (click)="castSpell(spell.id, randomEnemy!)"
+                *ngFor="let spell of selectedHero!.spells">{{
+                spell.name }}</button>
+            <button class="btn btn-primary">Attack</button>
         </div>
     </div>
+    <!-- vs bloc -->
     <div class="vs">
         <img src="/assets/images/heroes/vs.jfif" alt="" class="versus">
     </div>
+    <!-- Enemy block -->
     <div class="charactersBlock">
-        <div class="health-bar">
-            <div class="health-level" [style.width.%]=" (randomEnemy!.hp < 0) ? 0 : randomEnemy!.hp "></div>
-        </div>
-        <div class="card hero randomEnemy">
-            <div class="card-header">
-                <img class="heroesImg" [src]="randomEnemy!.imageUrl" alt="{{ randomEnemy!.name }}">
-            </div>
-            <div class="card-body">
-                <h2>Random Enemy</h2>
-                <p>Name: {{ randomEnemy!.name }}</p>
-                <li> Hp : {{ randomEnemy!.hp }}</li>
-                <li> Atk : {{ randomEnemy!.atk }}</li>
-                <li>Spells:
-                    <ul>
-                        <li *ngFor="let spell of randomEnemy!.spells">{{ spell.name }}</li>
-                    </ul>
-                </li>
-            </div>
+        <app-character-card [name]="randomEnemy!.name" [imageUrl]="randomEnemy!.imageUrl" [hp]="randomEnemy!.hp"
+            [maxHp]="randomEnemy!.maxHp" [atk]="randomEnemy!.atk" [spells]="randomEnemy!.spells"
+            [items]="randomEnemy!.items">
+        </app-character-card>
+        <p *ngIf="winner === 'Enemy'"> {{ randomEnemy!.name }} is the winner !</p>
+        <div class="spellbar">
+            <button class="btn btn-danger" *ngFor="let spell of randomEnemy!.spells">{{
+                spell.name }}</button>
+            <button class="btn btn-danger">Attack</button>
         </div>
     </div>
-</div>
-<div class="spellbar">
-    <button class="btn btn-primary" (click)="castSpell(spell.id)" *ngFor="let spell of selectedHero.spells">{{
-        spell.name }} {{ spell.damage }}
-        🔥</button>
-    <button class="btn btn-primary">Attak {{ selectedHero.atk }} 🔥</button>
 </div>

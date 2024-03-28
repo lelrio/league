@@ -7,6 +7,12 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FightComponent } from './fight/fight.component';
 import { WrongRouteComponent } from './wrong-route/wrong-route.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { CharacterCardComponent } from './character-card/character-card.component'; // Import MatProgressBarModule
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -14,14 +20,19 @@ import { WrongRouteComponent } from './wrong-route/wrong-route.component';
     HeroesComponent,
     FightComponent,
     WrongRouteComponent,
+    CharacterCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatSnackBarModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

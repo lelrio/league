@@ -1,0 +1,25 @@
+<div class="health-bar">
+    <mat-progress-bar mode="determinate" [value]="(hp / maxHp) * 100"></mat-progress-bar>
+</div>
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title> {{ name }} </mat-card-title>
+    </mat-card-header>
+    <img class="heroesImg" [src]="imageUrl" alt="{{ name }}">
+    <mat-card-content>
+        <div class="stats">
+            <p>HP: {{ hp }}</p>
+            <p>ATK: {{ atk }}</p>
+            <div class="d-flex justify-content-start align-items-start">
+                <p>Spells: </p>
+                <ul>
+                    <li *ngFor="let spell of spells">{{ spell.name }} {{ spell.damage }}</li>
+                </ul>
+                <p *ngIf="items.length > 0">Items:</p>
+                <ul>
+                    <li *ngFor="let item of items">{{ item.name }}</li>
+                </ul>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

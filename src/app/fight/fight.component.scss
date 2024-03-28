@@ -1,26 +1,16 @@
 .container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin: auto;
+    width: 100%;
 
-    .health-bar {
-        width: 400px;
-        height: 20px;
-        background-color: #ddd;
-        border-radius: 5px;
-    }
-    
-    .health-level {
-        height: 100%;
-        background-color: green; 
-        border-radius: 5px;
-    }
     .charactersBlock{
-        width: 50%;
-        margin-right: 50px;
-        margin-left: 50px;
+        width: 40%;
+        height: 100%;
     }
     .vs{
+        width: 100px;
         .versus{
             height: 100px;
             width: 100px;
@@ -60,3 +50,30 @@
     margin-top: 15px;
 }
 
+button{
+    font-size: 12px;
+}
+
+.hero-snackbar {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.enemy-snackbar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.winner-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 15px;
+    margin: 15px auto;
+    width: 200px;
+    height: 200px;
+}

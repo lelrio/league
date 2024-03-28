@@ -1,0 +1,19 @@
+:host ::ng-deep{
+    
+    .mat-mdc-card-header{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 15px;
+    
+        .mat-mdc-card-title {
+            font-size: 30px;
+        }
+    }
+    
+    .stats{
+        padding-top: 16px;
+    }
+} 
+
+

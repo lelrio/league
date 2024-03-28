@@ -2,30 +2,29 @@
   <h1>List of heroes :</h1>
 </div>
 <div class="container">
-  <div *ngFor="let hero of heroes" [class.selected]="selectedHero === hero" (click)="selectHero(hero)" class="card">
-    <div class="card-header">
-      <img class="heroesImg" [src]="hero.imageUrl" alt="{{ hero.name }}">
-    </div>
-    <div class="card-body">
-      <h2>{{ hero.name }}</h2>
-      <ul>
-        <li>HP: {{ hero.hp }}</li>
-        <li>ATK: {{ hero.atk }}</li>
-        <li>Spells:
+  <mat-card *ngFor="let hero of heroes" [class.selected]="selectedHero === hero" (click)="selectHero(hero)"
+    class="card">
+    <mat-card-header>
+      <mat-card-title> {{ hero.name }}</mat-card-title>
+    </mat-card-header>
+    <img class="heroesImg mat-card-image" [src]="hero.imageUrl" alt="{{ hero.name }}">
+    <mat-card-content>
+      <div class="stats">
+        <p>HP: {{ hero.hp }}</p>
+        <p>ATK: {{ hero.atk }}</p>
+        <div class="d-flex justify-content-start align-items-start">
+          <p>Spells: </p>
           <ul>
-            <li *ngFor="let spell of hero.spells">{{ spell.name }}</li>
-            <!-- // rajouter les dégats des spells // plutot créer un composant spell pour n'avoir à changer que le composant spell plutot que le héro -->
+            <li *ngFor="let spell of hero.spells">{{ spell.name }} {{ spell.damage }}</li>
           </ul>
-        </li>
-        <!-- Si la liste item vide faire opacity 0 -->
-        <li *ngIf="hero.items.length > 0">Items:
+          <p *ngIf="hero.items.length > 0">Items:</p>
           <ul>
             <li *ngFor="let item of hero.items">{{ item.name }}</li>
           </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 <div class="container-start">
